@@ -1,1 +1,2 @@
 checkpoint_best.pth filter=lfs diff=lfs merge=lfs -text
+nnUnet_config/results/fold_all/checkpoint_best.pth filter=lfs diff=lfs merge=lfs -text
