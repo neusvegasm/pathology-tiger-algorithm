@@ -1,14 +1,17 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="tigeralgorithmexample",
-    version="0.0.1",
-    author="Mart van Rijthoven",
-    author_email="mart.vanrijthoven@gmail.com",
+    name="tiger_nnunet_v2",
+    version="2",
+    author="Simon Reichert",
+    author_email="simon.reichert@ru.nl",
     packages=find_packages(),
     license="LICENSE.txt",
     install_requires=[
-        "numpy==1.23.5",
-        "tqdm==4.62.3"
+        "wheel==0.43.0",
+        "numpy==1.26.4",
+        "tqdm==4.66.4",
+        "nnunetv2==2.4.2",
+        "scikit-image==0.23.2"
     ],
 )

@@ -2,4 +2,4 @@
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
-docker build -t tigerexamplealgorithm "$SCRIPTPATH"
+docker build -t tiger_nnunet_v2 "$SCRIPTPATH"

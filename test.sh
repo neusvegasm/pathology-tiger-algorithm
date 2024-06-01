@@ -1,12 +1,20 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+#################
+printf "$SCRIPTPATH\n"
+#################
 
 SEGMENTATION_FILE="/output/images/breast-cancer-segmentation-for-tils/segmentation.tif"
 DETECTION_FILE="/output/detected-lymphocytes.json"
 TILS_SCORE_FILE="/output/til-score.json"
 
-MEMORY=4g
+#################
+printf "$DETECTION_FILE\n"
+#################
+
+MEMORY=12g #4g
 
 echo "Building docker"
 ./build.sh
@@ -23,10 +31,13 @@ docker run --rm \
         --security-opt="no-new-privileges" \
         --shm-size=128m \
         --pids-limit=256 \
-        --gpus-all \
         -v $SCRIPTPATH/testinput/:/input/ \
         -v tiger-output:/output/ \
-        tigerexamplealgorithm
+        tiger_nnunet_v2
+        #tigerexamplealgorithm
+
+
+#--gpus-all \
 
 echo "Checking output files..."
 docker run --rm \

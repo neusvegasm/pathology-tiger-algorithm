@@ -1,8 +1,18 @@
 # Pathology Tiger Algorithm Example
 
-Example algorithm and docker for the TIGER challenge
+Algorithm for the segmentation task and docker for the TIGER challenge.
+Code was adapted from https://github.com/DIAGNijmegen/pathology-tiger-algorithm-example/blob/main/tigeralgorithmexample/processing.py
 
-<img src="https://github.com/DIAGNijmegen/pathology-tiger-algorithm-example/blob/main/Tiger%20-%20algorithm%20example.png" width="500" height="500">
+# Changes made to the original Version 
+- added nnunetv2 model for segementation task + post processing to add bounding boxes
+- mainly changes were made in processing.py and changed/added following functions:
+  - process_image_tile_to_detections()
+  - segmentation_to_bboxes()
+  - process()
+
+# Run the code 
+- download repository 
+- 
 
 ## Requirements
 
@@ -14,6 +24,8 @@ Example algorithm and docker for the TIGER challenge
 - Python packages
   - numpy==1.20.2
   - tqdm==4.62.3
+  - "nnunetv2==2.4.2",
+  - "scikit-image==0.23.2"
 
 ## Summary of the files in package
 The packages consist of the following python files.
@@ -48,17 +60,6 @@ As an entry point, the \_\_main\_\_ file will be run; hence process function fro
 If you want to use a GPU, please change in the Dockerfile:
 - FROM ubuntu:20.04 ->  FROM nvidia/cuda:11.1-runtime-ubuntu20.04
 
-
-## Include your own code
-If you use this repository as a starting point. Please change the following three functions and implement your own models/pipeline
- - segmentation: https://github.com/DIAGNijmegen/pathology-tiger-algorithm-example/blob/f1e098cfd3300e7e1988c563afc98f904b4b08e8/tigeralgorithmexample/processing.py#L26
- - detection: https://github.com/DIAGNijmegen/pathology-tiger-algorithm-example/blob/f1e098cfd3300e7e1988c563afc98f904b4b08e8/tigeralgorithmexample/processing.py#L48
- - tils-score: https://github.com/DIAGNijmegen/pathology-tiger-algorithm-example/blob/f1e098cfd3300e7e1988c563afc98f904b4b08e8/tigeralgorithmexample/processing.py#L74
-
-
-Depending on the type of model and settings you are using, you might want or need to change the [processing function](https://github.com/DIAGNijmegen/pathology-tiger-algorithm-example/blob/9259053169f53f7b3a5c8fa7e798ce91b96362d4/tigeralgorithmexample/processing.py#L105).
-
-
 ## Test and Export
 To test if your algorithm works and (still) produces the correct outputs you add an image to ./testinput/ and a corresponding tissue mask in ./testinput/images/
 
@@ -76,4 +77,3 @@ This will build the docker, run the docker and check if the required output is p
 ```
 
 The resulting .tar.xz file can be uploaded to the <a href="https://grand-challenge.org/">grand-challenge</a> platform
-

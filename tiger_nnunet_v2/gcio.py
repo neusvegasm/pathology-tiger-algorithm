@@ -8,6 +8,20 @@ Note that these settings are moslty specific to the GrandChallenge Tiger Challen
 from pathlib import Path
 from shutil import copy
 
+###
+#_ALGORITHM_FOLDER = Path(__file__).parent
+UNET_CONFIG_PATH = Path("/home/user/nnUnet_config")
+
+UNET_RAW_FOLDER = Path("/raw/")
+UNET_PREPROCESSED_FOLDER = Path("/preprocessed/")
+UNET_RESULTS_FOLDER = Path("/results/")
+#UNET_RESULTS_FOLDER = Path("/nnUNet_results/")
+
+UNET_RAW_PATH = UNET_CONFIG_PATH / UNET_RAW_FOLDER.name
+UNET_PREPROCESSED_PATH = UNET_CONFIG_PATH / UNET_PREPROCESSED_FOLDER.name
+UNET_RESULTS_PATH = UNET_CONFIG_PATH / UNET_RESULTS_FOLDER.name
+###
+
 
 # Grand Challenge paths
 GRAND_CHALLENGE_SEGMENTATION_OUTPUT_PATH = Path(
@@ -27,6 +41,8 @@ TMP_TILS_SCORE_PATH = TMP_FOLDER / GRAND_CHALLENGE_TILS_SCORE_PATH.name
 # Grand Challenge folders were input files can be found
 GRAND_CHALLENGE_IMAGE_FOLDER = Path("/input/")
 GRAND_CHALLENGE_MASK_FOLDER = Path("/input/images/")
+#GRAND_CHALLENGE_IMAGE_FOLDER = Path("/home/user/pathology-tiger-algorithm/testinput")
+#GRAND_CHALLENGE_MASK_FOLDER = Path("/home/user/pathology-tiger-algorithm/testinput/images/")
 
 # Grand Challenge suffixes for required files
 GRAND_CHALLENGE_IMAGE_SUFFIX = ".tif"
@@ -52,6 +68,8 @@ def _get_file_from_folder(folder: Path, suffix: str) -> Path:
     Returns:
         Path: path to file
     """
+    ####
+    print(Path(folder))
     return list(Path(folder).glob("*" + suffix))[0]
 
 

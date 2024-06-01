@@ -1,8 +1,7 @@
-
 import gcapi  # pip install gcapi
 
-your_algorithm_slug = "tiger-algorithm-example"           # <--- CHANGE THIS
-client = gcapi.Client(token="")                           # <--- CHANGE THIS, more information about the token please see this link: https://grand-challenge.org/documentation/what-can-gc-api-be-used-for/
+your_algorithm_slug = "nnunet_segmentation_for_detection"           # <--- CHANGE THIS
+client = gcapi.Client(token="0efc24961ab263566ba64ff87579a2079cffc932b366a977b96976f60ca4a385")                           # <--- CHANGE THIS, more information about the token please see this link: https://grand-challenge.org/documentation/what-can-gc-api-be-used-for/
 
 job = client.run_external_job(
     algorithm=your_algorithm_slug,
@@ -14,3 +13,7 @@ job = client.run_external_job(
     }
 )
 # More information about gcapi please see this link: https://grand-challenge.org/documentation/grand-challenge-api/
+
+###
+print(job["status"] )
+###
