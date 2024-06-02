@@ -10,6 +10,12 @@ Code was adapted from https://github.com/DIAGNijmegen/pathology-tiger-algorithm-
   - segmentation_to_bboxes()
   - process()
 
+# Training folder
+
+The training folder contains two files: the training
+- seg.py which contains the code to create the segmentation masks from the bounding boxes
+- train_nnunet_job.sh which contains the code to train the nnUNet model on Snellius
+
 ## Requirements
 
 - Ubuntu software
