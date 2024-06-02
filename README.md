@@ -10,10 +10,6 @@ Code was adapted from https://github.com/DIAGNijmegen/pathology-tiger-algorithm-
   - segmentation_to_bboxes()
   - process()
 
-# Run the code 
-- download repository 
-- 
-
 ## Requirements
 
 - Ubuntu software
